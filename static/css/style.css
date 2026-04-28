@@ -28,6 +28,7 @@ body {
 }
 
 header {
+    gap: 5px;
     z-index: 200;
     width: 100%;
     height: var(--header-height);
@@ -89,7 +90,6 @@ header {
 
 .right ul {
     display: flex;
-    gap: 15px;
     align-items: center;
 }
 
