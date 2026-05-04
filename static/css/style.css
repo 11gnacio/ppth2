@@ -24,7 +24,11 @@
 body {
     width: 100%;
     height: 100vh;
-    background-color: var(--background-color);
+    background-color: #CAC6C6;
+}
+
+.green {
+    color: green;
 }
 
 header {
@@ -80,12 +84,12 @@ header {
 
 .menu.menu-toggle div:first-child {
     width: 40%;
-    transform: rotate(-35deg) translate(-30%,175%);
+    transform: rotate(-35deg) translate(-30%, 175%);
 }
 
 .menu.menu-toggle div:last-child {
     width: 40%;
-    transform: rotate(35deg) translate(-30%,-160%);
+    transform: rotate(35deg) translate(-30%, -160%);
 }
 
 .right ul {
@@ -131,14 +135,15 @@ header {
     background-color: var(--background-color);
     padding: 1rem;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    transition: width 0.5s ease ;
+    transition: width 0.5s ease;
+    z-index: 1000;
 }
 
 /* Contenedor de contenido */
-.main-content {
+.container {
     margin-top: var(--header-height);
-    margin-left: 260px;
-    padding: 2rem;
+    margin-left: 80px;
+    padding: 10px;
 }
 
 .sidebar a {
@@ -171,4 +176,308 @@ header {
 .sidebar a.selected {
     background-color: var(--background-selected);
     color: var(--text-selected-color);
+}
+
+/* ------------------------------- dentro del contenedor-------------------------- */
+
+.principio {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    /* Ajusta la altura que desees */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    /* Para que el texto sea legible sobre fondo oscuro */
+}
+
+.fondo-img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* La imagen cubre todo sin estirarse */
+    z-index: 1;
+    /* Oscurecemos la imagen al 40% de brillo (puedes bajarlo más si quieres) */
+    filter: brightness(0.4);
+}
+
+.caja {
+    position: relative;
+    z-index: 2;
+    /* Asegura que el texto esté por encima de la imagen */
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.titular h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    /* Forzamos color claro */
+}
+
+.text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Cajas*/
+
+/* ------------------------------- Secciones de Beneficios -------------------------- */
+
+/* General para ambas secciones */
+.beneficios_uno, .beneficios_dos {
+    display: flex;
+    padding: 80px 50px; /* Más espacio arriba y abajo para que respire */
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra muy suave y profesional */
+    gap: 60px;
+}
+
+/* Ajuste de imágenes: ahora con un marco decorativo */
+.iz_quierda, .der_echa {
+    flex: 1;
+    max-width: 450px; /* Un poco más grandes */
+    position: relative;
+}
+
+.iz_quierda img, .der_echa img {
+    width: 100%;
+    aspect-ratio: 1/1; 
+    object-fit: cover;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ; 
+    border: 8px solid var(--background-selected);
+    transition: transform 0.5s ease;
+}
+
+.iz_quierda img:hover, .der_echa img:hover {
+    transform: scale(1.03);
+}
+
+/* Contenedores de texto */
+.de_recha, .iz {
+    flex: 1.2;
+    text-align: left; /* Alineación a la izquierda es más profesional para lectura larga */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.de_recha h2, .iz h2 {
+    font-size: 2.2rem;
+    color: var(--text-title-color);
+    border-bottom: 4px solid var(--text-selected-color); /* Línea más gruesa y con color */
+    padding-bottom: 10px;
+    display: inline-block;
+    align-self: flex-start; /* Alinea el título a la izquierda */
+    margin-bottom: 20px;
+}
+
+/* Estilo para cada bloque de beneficio */
+.uno, .dos {
+    background: var(--background-hover);
+    padding: 20px;
+    border-left: 5px solid var(--text-selected-color);
+    border-radius: 0 15px 15px 0;
+    transition: 0.3s;
+}
+
+.uno:hover, .dos:hover {
+    background: var(--background-selected);
+    transform: translateX(10px); 
+}
+
+.uno h3, .dos h3 {
+    color: var(--text-selected-color);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Iconos decorativos */
+.uno h3::before {
+    content: "•"; 
+    font-size: 2rem;
+}
+
+.uno p, .dos p {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/*móviles */
+@media (max-width: 900px) {
+    .beneficios_uno, .beneficios_dos {
+        flex-direction: column !important;
+        padding: 40px 20px;
+    }
+    .iz, .de_recha {
+        text-align: center;
+    }
+    .de_recha h2, .iz h2 {
+        align-self: center;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: var(--text-title-color); /* Color oscuro elegante */
+    color: #ffffff;
+    padding: 80px 0 30px 0;
+    margin-top: 50px;
+    border-top: 5px solid var(--text-selected-color);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 2rem;
+}
+
+.footer-column h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--green-lumenia); /* Tu verde de Lumenia */
+}
+
+.footer-description {
+    line-height: 1.8;
+    color: #cbd5e0;
+    margin: 1.5rem 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--text-selected-color);
+    transform: translateY(-5px);
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: white;
+    padding-left: 10px;
+}
+
+/* Newsletter */
+.newsletter-form {
+    display: flex;
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    padding: 12px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 100%;
+    outline: none;
+}
+
+.newsletter-form button {
+    background-color: var(--text-selected-color);
+    border: none;
+    color: white;
+    padding: 0 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--green-lumenia);
+}
+
+/* Bottom */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 60px auto 0 auto;
+    padding: 20px 2rem 0 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #a0aec0;
+    font-size: 0.9rem;
+}
+
+.footer-legal a {
+    color: #a0aec0;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.footer-legal a:hover {
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-legal a {
+        margin: 0 10px;
+    }
 }
