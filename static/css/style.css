@@ -235,59 +235,72 @@ header {
 /* ------------------------------- Secciones de Beneficios -------------------------- */
 
 /* General para ambas secciones */
-.beneficios_uno, .beneficios_dos {
+.beneficios_uno,
+.beneficios_dos {
     display: flex;
-    padding: 80px 50px; /* Más espacio arriba y abajo para que respire */
+    padding: 80px 50px;
+    /* Más espacio arriba y abajo para que respire */
     align-items: center;
     justify-content: center;
     background-color: white;
     margin: 20px 0;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra muy suave y profesional */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Sombra muy suave y profesional */
     gap: 60px;
 }
 
 /* Ajuste de imágenes: ahora con un marco decorativo */
-.iz_quierda, .der_echa {
+.iz_quierda,
+.der_echa {
     flex: 1;
-    max-width: 450px; /* Un poco más grandes */
+    max-width: 450px;
+    /* Un poco más grandes */
     position: relative;
 }
 
-.iz_quierda img, .der_echa img {
+.iz_quierda img,
+.der_echa img {
     width: 100%;
-    aspect-ratio: 1/1; 
+    aspect-ratio: 1/1;
     object-fit: cover;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ; 
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     border: 8px solid var(--background-selected);
     transition: transform 0.5s ease;
 }
 
-.iz_quierda img:hover, .der_echa img:hover {
+.iz_quierda img:hover,
+.der_echa img:hover {
     transform: scale(1.03);
 }
 
 /* Contenedores de texto */
-.de_recha, .iz {
+.de_recha,
+.iz {
     flex: 1.2;
-    text-align: left; /* Alineación a la izquierda es más profesional para lectura larga */
+    text-align: left;
+    /* Alineación a la izquierda es más profesional para lectura larga */
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.de_recha h2, .iz h2 {
+.de_recha h2,
+.iz h2 {
     font-size: 2.2rem;
     color: var(--text-title-color);
-    border-bottom: 4px solid var(--text-selected-color); /* Línea más gruesa y con color */
+    border-bottom: 4px solid var(--text-selected-color);
+    /* Línea más gruesa y con color */
     padding-bottom: 10px;
     display: inline-block;
-    align-self: flex-start; /* Alinea el título a la izquierda */
+    align-self: flex-start;
+    /* Alinea el título a la izquierda */
     margin-bottom: 20px;
 }
 
 /* Estilo para cada bloque de beneficio */
-.uno, .dos {
+.uno,
+.dos {
     background: var(--background-hover);
     padding: 20px;
     border-left: 5px solid var(--text-selected-color);
@@ -295,12 +308,14 @@ header {
     transition: 0.3s;
 }
 
-.uno:hover, .dos:hover {
+.uno:hover,
+.dos:hover {
     background: var(--background-selected);
-    transform: translateX(10px); 
+    transform: translateX(10px);
 }
 
-.uno h3, .dos h3 {
+.uno h3,
+.dos h3 {
     color: var(--text-selected-color);
     margin-bottom: 10px;
     font-size: 1.3rem;
@@ -311,11 +326,12 @@ header {
 
 /* Iconos decorativos */
 .uno h3::before {
-    content: "•"; 
+    content: "•";
     font-size: 2rem;
 }
 
-.uno p, .dos p {
+.uno p,
+.dos p {
     color: var(--text-color);
     line-height: 1.6;
     font-size: 1.05rem;
@@ -323,21 +339,28 @@ header {
 
 /*móviles */
 @media (max-width: 900px) {
-    .beneficios_uno, .beneficios_dos {
+
+    .beneficios_uno,
+    .beneficios_dos {
         flex-direction: column !important;
         padding: 40px 20px;
     }
-    .iz, .de_recha {
+
+    .iz,
+    .de_recha {
         text-align: center;
     }
-    .de_recha h2, .iz h2 {
+
+    .de_recha h2,
+    .iz h2 {
         align-self: center;
     }
 }
 
 /* Footer */
 .footer {
-    background-color: var(--text-title-color); /* Color oscuro elegante */
+    background-color: var(--text-title-color);
+    /* Color oscuro elegante */
     color: #ffffff;
     padding: 80px 0 30px 0;
     margin-top: 50px;
@@ -367,7 +390,8 @@ header {
     bottom: 0;
     width: 40px;
     height: 2px;
-    background-color: var(--green-lumenia); /* Tu verde de Lumenia */
+    background-color: var(--green-lumenia);
+    /* Tu verde de Lumenia */
 }
 
 .footer-description {
@@ -477,7 +501,62 @@ header {
         flex-direction: column;
         text-align: center;
     }
+
     .footer-legal a {
         margin: 0 10px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+        width: 18.75rem;
+        /* mantiene tu diseño */
+    }
+
+    .sidebar.menu-toggle {
+        transform: translateX(0);
+    }
+
+    .container {
+        margin-left: 0;
+    }
+
+    header {
+        padding: 0 1rem;
+    }
+
+    .beneficios_uno,
+    .beneficios_dos {
+        flex-direction: column;
+    }
+
+    .iz_quierda,
+    .der_echa,
+    .iz,
+    .de_recha {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .de_recha,
+    .iz {
+        text-align: center;
+        align-items: center;
+    }
+
+    .titular h2 {
+        font-size: 2rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
     }
 }
