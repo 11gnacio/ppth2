@@ -38,7 +38,7 @@ const formulario = document.getElementById("formulario-solicitud");
 
 // Evento enviar
 formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
+
 
     const parametros = {
         nombre: document.getElementById("nombre").value,
