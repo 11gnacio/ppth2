@@ -114,12 +114,21 @@ header {
     color: var(--text-color);
 }
 
-.right a:hover {
+
+
+.right a {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.right a:hover,
+.right a.active {
     background-color: var(--background-hover);
     color: var(--text-selected-color);
     box-shadow: 2px 2px 4px rgba(39, 39, 39, 0.938);
 }
-
 
 .sidebar.menu-toggle {
     width: 18.75rem;
@@ -177,6 +186,115 @@ header {
     background-color: var(--background-selected);
     color: var(--text-selected-color);
 }
+
+/* ////--------------------------------------------- */
+/* dialog */
+.dialog {
+    padding: 15px;
+    width: 50%;
+    height: 50%;
+    border: none;
+    border-radius: 10px;
+}
+
+.dialog[open] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.estilos ul {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.estilos li {
+    list-style: none;
+}
+
+.estilos {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.estilos a {
+    display: inline-block;
+    width: 400px;
+    text-align: center;
+    color: var(--background-selected);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.40s ease;
+}
+
+.zull {
+    background-color: var(--text-selected-color);
+    padding: 10px;
+}
+
+.verdee {
+    padding: 10px;
+    background-color: rgb(16, 173, 16);
+}
+
+.zull:hover {
+    background-color: #406ee0;
+}
+
+.verdee:hover {
+    background-color: rgb(21, 218, 21);
+}
+
+.dialog .bi-x {
+    font-size: 30px;
+    transition: 0.40s ease;
+}
+
+.dialog .bi-x:hover {
+    color: var(--text-selected-color);
+}
+
+
+.dialog button {
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff00;
+}
+
+
+/* Fin del dialog */
+
+/* Modo responsivo */
+
+@media (max-width: 768px) {
+
+    .dialog {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .estilos {
+        margin-top: 20%;
+    }
+
+    .estilos a {
+        width: 200px;
+        max-width: 300px;
+    }
+
+    .zull,
+    .verdee {
+        padding: 12px;
+    }
+}
+
+/* Fin del responsibo */
+
+/* ////--------------------------------------------- */
 
 /* ------------------------------- dentro del contenedor-------------------------- */
 
@@ -239,23 +357,22 @@ header {
 .beneficios_dos {
     display: flex;
     padding: 80px 50px;
-    /* Más espacio arriba y abajo para que respire */
+    /* Más espacio arriba */
     align-items: center;
     justify-content: center;
     background-color: white;
     margin: 20px 0;
     border-radius: 15px;
+    /* sombra suave */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    /* Sombra muy suave y profesional */
     gap: 60px;
 }
 
-/* Ajuste de imágenes: ahora con un marco decorativo */
+/* decoration */
 .iz_quierda,
 .der_echa {
     flex: 1;
     max-width: 450px;
-    /* Un poco más grandes */
     position: relative;
 }
 
@@ -279,7 +396,7 @@ header {
 .iz {
     flex: 1.2;
     text-align: left;
-    /* Alineación a la izquierda es más profesional para lectura larga */
+    /* Alineación a la izquierda*/
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -290,7 +407,6 @@ header {
     font-size: 2.2rem;
     color: var(--text-title-color);
     border-bottom: 4px solid var(--text-selected-color);
-    /* Línea más gruesa y con color */
     padding-bottom: 10px;
     display: inline-block;
     align-self: flex-start;
@@ -513,7 +629,8 @@ header {
     .sidebar {
         transform: translateX(-100%);
         width: 18.75rem;
-        /* mantiene tu diseño */
+        transition: 0.40s ease;
+
     }
 
     .sidebar.menu-toggle {

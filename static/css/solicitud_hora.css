@@ -179,129 +179,13 @@ header {
     color: var(--text-selected-color);
 }
 
-/* --- ESTILO ULTRA-REALISTA PARA EL CONTENIDO PRINCIPAL --- */
-
-.container {
-    margin-top: var(--header-height);
-    margin-left: 80px;
-    border-radius: 10px;
-    padding: 40px 20px;
-    min-height: calc(100vh - var(--header-height));
-    background: radial-gradient(circle at top right, #e0e5ec, #ffffff);
-    /* Fondo con profundidad */
-}
-
-.faq-title {
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--text-title-color);
-    margin-bottom: 5px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.faq-subtitle {
-    text-align: center;
-    color: var(--menu-color);
-    margin-bottom: 50px;
-    font-style: italic;
-}
-
-/* Tarjetas de Vidrio Realista */
-.faq-item {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(15px);
-    /* Efecto cristal esmerilado */
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 24px;
-    margin-bottom: 20px;
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    box-shadow:
-        10px 10px 20px rgba(0, 0, 0, 0.05),
-        -5px -5px 15px rgba(255, 255, 255, 0.8);
-    /* Neumorfismo suave */
-}
-
-.faq-item:hover {
-    transform: translateY(-5px) scale(1.01);
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.1);
-    border-color: var(--text-selected-color);
-}
-
-/* El botón de la pregunta como disparador */
-.faq-question {
-    width: 100%;
-    padding: 25px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: transparent;
-    border: none;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-title-color);
-    cursor: pointer;
-    outline: none;
-}
-
-/* El Icono de flecha con efecto gota */
-.faq-question i {
-    width: 35px;
-    height: 35px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), 2px 2px 5px rgba(255, 255, 255, 1);
-    transition: 0.4s;
-    color: var(--text-selected-color);
-}
-
-/* Respuesta revelada con profundidad */
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.5s ease;
-    padding: 0 30px;
-}
-
-.faq-item.active {
-    background: rgba(255, 255, 255, 0.8);
-    border-left: 6px solid var(--text-selected-color);
-}
-
-.faq-item.active .faq-answer {
-    max-height: 300px;
-    padding-bottom: 30px;
-}
-
-.faq-answer p {
-    color: var(--text-color);
-    line-height: 1.8;
-    font-size: 1.1rem;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-/* Efecto de iluminación al abrir */
-.faq-item.active i {
-    background: var(--text-selected-color);
-    color: white;
-    transform: rotate(180deg);
-    box-shadow: 0 0 15px var(--text-selected-color);
-}
-
-
-/* Zona responsiva */
 @media (max-width: 900px) {
 
     .sidebar {
         transform: translateX(-100%);
         width: 18.75rem;
         transition: 0.40s ease;
+
     }
 
     .sidebar.menu-toggle {
@@ -310,43 +194,41 @@ header {
 
     .container {
         margin-left: 0;
-        padding: 15px;
     }
 
     header {
         padding: 0 1rem;
     }
 
-    .left h1 {
-        font-size: 1.2rem;
+    .beneficios_uno,
+    .beneficios_dos {
+        flex-direction: column;
     }
 
-    .faq-title {
+    .iz_quierda,
+    .der_echa,
+    .iz,
+    .de_recha {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .de_recha,
+    .iz {
+        text-align: center;
+        align-items: center;
+    }
+
+    .titular h2 {
         font-size: 2rem;
     }
 
-    .faq-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 30px;
+    .footer-container {
+        grid-template-columns: 1fr;
     }
 
-    .faq-question {
-        padding: 18px;
-        font-size: 1rem;
-    }
-
-    .faq-answer p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
-    .faq-question i {
-        width: 30px;
-        height: 30px;
-        font-size: 14px;
-    }
-
-    .faq-item {
-        border-radius: 16px;
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
     }
 }
