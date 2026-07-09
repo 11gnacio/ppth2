@@ -83,3 +83,22 @@ boton.textContent = "Enviando...";
 
 boton.disabled = false;
 boton.textContent = "Enviar Solicitud";
+/*========================================
+            LOADER
+========================================*/
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("pageLoader");
+
+    if (loader) {
+
+        setTimeout(() => {
+
+            loader.classList.add("hidden");
+
+        }, 800);
+
+    }
+
+});
